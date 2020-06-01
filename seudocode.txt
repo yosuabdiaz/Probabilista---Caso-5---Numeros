@@ -1,0 +1,36 @@
+llenar lista de lineas
+do{
+	preguntar que numero se va a consultar
+	llamar a la numeros(lista de lineas, numero, total de lineas);	
+}while()
+
+numeros(lista de lineas, numero, total de lineas){
+	int sirve;
+	switch(numero){
+		case 1:
+			for (cada elemento de la lista){
+				if (la salida de la linea esta entre (x,y) y (x,y)  y la llegada de la lista esta entre (x,y) y (x,y))///UN if para cada parte del numero
+					sirve++;
+				if(la salida de la linea esta entre (x,y) y (x,y)  y la llegada de la lista esta entre (x,y) y (x,y))
+					sirve++;
+			}
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9: 
+		case 0:
+	}
+	P = porcentaje de lineas que me sirven (sirve / total de lineas )*100;
+	RANDOM = rand()1 + 100;
+		if (RAMDOM < P ){ y si el random esta dentro del % de que sirve
+			SI SE FORMA EL NUMERO 
+		}
+		else{
+			NO SE FORMO 
+		}
+}
+
