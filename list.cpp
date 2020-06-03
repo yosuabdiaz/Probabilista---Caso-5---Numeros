@@ -44,13 +44,6 @@ int listaSimple::largoLista(){
 
 }
 
-void listaSimple::InsertarInicio(int xsalida,int ysalida ,int xllegada,int yllegada)
-{
-   if (ListaVacia())
-     primero = new nodo(xsalida,ysalida,xllegada,yllegada);
-   else
-     primero=new nodo(xsalida,ysalida,xllegada,yllegada,primero);
-}
 
 void listaSimple::InsertarFinal(int xsalida,int ysalida ,int xllegada,int yllegada)
 {
@@ -83,3 +76,4 @@ void listaSimple::Siguiente()
 {
    if(actual) actual = actual->siguiente;
 }
+
