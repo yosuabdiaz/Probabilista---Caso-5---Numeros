@@ -7,15 +7,54 @@ en la visualización 2D de dichas líneas. Debe seguir el estándar de código d
 ser  orientad o a objetos ,buscar la simplicidad del algoritmo y la forma en que demuestra que
 el resultado es justificable
 */ 
-
+#include <cstdlib>
 #include <iostream>
 #include "list.cpp"
-#include <cstdlib>
+#include "node.h"
+#include "listaDistribucion.cpp"
+#include "node_distribucion.h"
+
 
 using namespace std;
  // [(1,2,900,800)]   = una linea >> Forma en la que llega la lista
 
-listaSimple llenadolista(int lineas){
+int* generarArreglo(int id,int tipo,int ancho,int alto){
+	if(tipo==0){
+		int* arr = new int[4]; 
+		return arr;
+	}else{
+		int* arr = new int[6]; 
+		return arr;
+	}
+
+}
+
+bool esLateralDerecho(nodo* linea,int alto,int ancho){
+	//ver si el punto de salida es desde la derecha tomando en cuanta el ancho y alto 
+}
+bool esLateralIzquierdo(nodo* linea,int alto,int ancho){
+	//ver si el punto de salida es desde la izquierda tomando en cuanta el ancho y alto	
+}
+bool esLaterialSuperior(nodo* linea,int alto,int ancho){
+	//ver si el punto de salida es desde arriba tomando en cuanta el alto y alto
+}
+bool esLaterialInferior(nodo* linea,int alto,int ancho){
+	//ver si el punto de salida es desde abajo tomando en cuanta el ancho y alto
+}
+
+listaSimpleD llenadoDistribucion(int ancho, int alto){
+	listaSimpleD listaDistribucion;	
+	listaDistribucion.InsertarFinal(0,generarArreglo(0,0,ancho,alto),generarArreglo(0,1,ancho,alto)); //0 para arriba y abajo - 1 para derecha e izquierda
+	listaDistribucion.InsertarFinal(1,generarArreglo(1,0,ancho,alto),generarArreglo(1,1,ancho,alto));
+	listaDistribucion.InsertarFinal(285,generarArreglo(285,0,ancho,alto),generarArreglo(285,1,ancho,alto));
+	listaDistribucion.InsertarFinal(3,generarArreglo(3,0,ancho,alto),generarArreglo(3,1,ancho,alto));
+	listaDistribucion.InsertarFinal(4,generarArreglo(4,0,ancho,alto),generarArreglo(4,1,ancho,alto));
+	listaDistribucion.InsertarFinal(6,generarArreglo(6,0,ancho,alto),generarArreglo(6,1,ancho,alto));
+	listaDistribucion.InsertarFinal(79,generarArreglo(79,0,ancho,alto),generarArreglo(79,1,ancho,alto));
+	cout<<"lista de distribucion llenada"<<endl;
+	return listaDistribucion;
+}
+listaSimple llenadoLista(int lineas){
 	listaSimple listalineas;
 	for (int i=0;i<lineas;i++){
 		int random= rand()%6+1; 
@@ -51,29 +90,32 @@ listaSimple llenadolista(int lineas){
 			
 		}
 	}
-	cout<<"lista llenada"<<endl;
+	cout<<"lista de lineas llenada"<<endl;
 	return listalineas;
 }
 
-void numeros(int n , listaSimple listalineas){
-	cout<<"hola";
-}
-
 int main(){
+	
 	int lineas;
 	cout<<"Ingresar numero de trazos"<<endl;
 	cin>>lineas;
 	cout<<"Llenando la lista con los trazos"<<endl;
 	listaSimple listaLineas;
-	listaLineas = llenadolista(lineas);
-	int op=1;
-	int n=0;
-	do{
-		cout<<"Que numero desea consultar?"<<endl;
-		cin>>n;
-		numeros(n,listaLineas);
-		cout<<endl<<"1-Volver "<<endl<<"0-Salir"<<endl;
-		cin>>op;
-	}while(op!=0);
+	listaLineas = llenadoLista(lineas);// lista de lineas = {(1,2,3,4),(1,2,3,4),(1,2,3,4),(1,2,3,4)}
+	
+	int ancho,alto;
+	cout<<"Cual seria el alto:"<<endl;
+	cin>>alto;
+	cout<<"Cual seria el ancho"<<endl;
+	cin>>ancho;
+	listaSimpleD listaDistribucion;
+	listaDistribucion = llenadoDistribucion(ancho,alto);// lista de distribucion  = {(id,arr[],arr[])};
+	
+	nodo* aux1;
+	aux1 = listaLineas.primero;
+		
+	while(aux1!=NULL){ // recorre la lista de lineas
+		aux1 = aux1->siguiente;	
+	}
 	return 0;
 }
