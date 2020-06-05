@@ -11,61 +11,24 @@ el resultado es justificable
 #include <iostream>
 #include "list.cpp"
 #include "node.h"
-#include "listaDistribucion.cpp"
-#include "node_distribucion.h"
-
+#include <bits/stdc++.h>
 
 using namespace std;
  // [(1,2,900,800)]   = una linea >> Forma en la que llega la lista
 
-int* generarArreglo(int id,int tipo,int ancho,int alto){
-	if(tipo==0){
-		int* arr = new int[4]; 
-		return arr;
-	}else{
-		int* arr = new int[6]; 
-		return arr;
-	}
 
-}
-
-bool esLateralDerecho(nodo* linea,int alto,int ancho){
-	//ver si el punto de salida es desde la derecha tomando en cuanta el ancho y alto 
-}
-bool esLateralIzquierdo(nodo* linea,int alto,int ancho){
-	//ver si el punto de salida es desde la izquierda tomando en cuanta el ancho y alto	
-}
-bool esLaterialSuperior(nodo* linea,int alto,int ancho){
-	//ver si el punto de salida es desde arriba tomando en cuanta el alto y alto
-}
-bool esLaterialInferior(nodo* linea,int alto,int ancho){
-	//ver si el punto de salida es desde abajo tomando en cuanta el ancho y alto
-}
-
-listaSimpleD llenadoDistribucion(int ancho, int alto){
-	listaSimpleD listaDistribucion;	
-	listaDistribucion.InsertarFinal(0,generarArreglo(0,0,ancho,alto),generarArreglo(0,1,ancho,alto)); //0 para arriba y abajo - 1 para derecha e izquierda
-	listaDistribucion.InsertarFinal(1,generarArreglo(1,0,ancho,alto),generarArreglo(1,1,ancho,alto));
-	listaDistribucion.InsertarFinal(285,generarArreglo(285,0,ancho,alto),generarArreglo(285,1,ancho,alto));
-	listaDistribucion.InsertarFinal(3,generarArreglo(3,0,ancho,alto),generarArreglo(3,1,ancho,alto));
-	listaDistribucion.InsertarFinal(4,generarArreglo(4,0,ancho,alto),generarArreglo(4,1,ancho,alto));
-	listaDistribucion.InsertarFinal(6,generarArreglo(6,0,ancho,alto),generarArreglo(6,1,ancho,alto));
-	listaDistribucion.InsertarFinal(79,generarArreglo(79,0,ancho,alto),generarArreglo(79,1,ancho,alto));
-	cout<<"lista de distribucion llenada"<<endl;
-	return listaDistribucion;
-}
 listaSimple llenadoLista(int lineas){
 	listaSimple listalineas;
 	for (int i=0;i<lineas;i++){
 		int random= rand()%6+1; 
-		int y = rand()%920+1;
-		int x = rand()%1080+1;
-		int y_llegada = rand()%920+1;
-		int x_llegada = rand()%1080+1;
+		int y = rand()%919+0;
+		int x = rand()%1079+0;
+		int y_llegada = rand()%919+0;
+		int x_llegada = rand()%1079+0;
 		switch(random)
 		{
 			case 1:{
-				listalineas.InsertarFinal(x,0,x_llegada,920);
+				listalineas.InsertarFinal(x,0,x_llegada,919);
 				break;
 				}
 			case 2:{
@@ -73,49 +36,126 @@ listaSimple llenadoLista(int lineas){
 				break;
 				}
 			case 3:{
-				listalineas.InsertarFinal(x,0,1080,y_llegada);
+				listalineas.InsertarFinal(x,0,1079,y_llegada);
 				break;
 				}
 			case 4:{
-				listalineas.InsertarFinal(0,y,1080,y_llegada);
+				listalineas.InsertarFinal(0,y,1079,y_llegada);
 				break;
 			}
 			case 5:{
-				listalineas.InsertarFinal(0,y,x_llegada,920);
+				listalineas.InsertarFinal(0,y,x_llegada,919);
 				break;
 			}
 			case 6:{
-				listalineas.InsertarFinal(1080,y,x_llegada,920);
+				listalineas.InsertarFinal(1079,y,x_llegada,919);
 			}
 			
 		}
 	}
 	cout<<"lista de lineas llenada"<<endl;
+	//listalineas.Mostrar();
 	return listalineas;
 }
 
-int main(){
+vector<int> sacardistribucionArriba(listaSimple listaLineas){
+	vector<int>distribucionArriba;
+	nodo* aux;
+	aux = listaLineas.primero;
+	int seccion1=0;
+	int seccion2=0;
+	int seccion3=0;
+	int semitotal=0;
+	while(aux!=NULL){
+		if(aux->y_salida==0 and aux->x_salida <= 359){
+			semitotal++;
+			int x = aux->x_salida;
+			//cout<<x<<endl;
+			if(x <= 119){
+				//cout<<x<<endl;
+				seccion1++;
+			}
+			if(x >= 120 and x <= 240){
+				//cout<<x<<endl;
+				seccion2++;
+			}
+			if(x >= 241 and x <= 359){
+				//cout<<x<<endl;
+				seccion3++;
+			}
+		}
+		aux=aux->siguiente;	
+	}
+	/*
+	cout<<"semitotal: "<<semitotal<<endl;
+	cout<<"seccion1: "<<seccion1<<endl;
+	cout<<"seccion2: "<<seccion2<<endl;
+	cout<<"seccion3: "<<seccion3<<endl;
+	*/
+	distribucionArriba.push_back((int)((static_cast<double>(seccion1)/semitotal)*100));
+	distribucionArriba.push_back((int)((static_cast<double>(seccion2)/semitotal)*100));
+	distribucionArriba.push_back((int)((static_cast<double>(seccion3)/semitotal)*100));
 	
+	for (size_t i = 0; i < distribucionArriba.size(); i++) {
+    	cout << distribucionArriba[i] <<endl;
+ 	}
+	return distribucionArriba;
+}
+
+vector<int> sacardistribucionLado(listaSimple listaLineas){
+	vector<int>distribucionLado;
+	nodo* aux;
+	aux = listaLineas.primero;
+	int seccion1=0;
+	int seccion2=0;
+	int seccion3=0;
+	int semitotal=0;
+	while(aux!=NULL){
+		if(aux->x_salida == 0){
+			semitotal++;
+			int y = aux->y_salida;
+			//cout<<x<<endl;
+			if(y <= 306){
+				//cout<<x<<endl;
+				seccion1++;
+			}
+			if(y >= 307 and y <= 613){
+				//cout<<x<<endl;
+				seccion2++;
+			}
+			if(y >= 614){
+				//cout<<x<<endl;
+				seccion3++;
+			}
+		}
+		aux=aux->siguiente;	
+	}
+	/*
+	cout<<"semitotal: "<<semitotal<<endl;
+	cout<<"seccion1: "<<seccion1<<endl;
+	cout<<"seccion2: "<<seccion2<<endl;
+	cout<<"seccion3: "<<seccion3<<endl;
+	*/
+	distribucionLado.push_back((int)((static_cast<double>(seccion1)/semitotal)*100));
+	distribucionLado.push_back((int)((static_cast<double>(seccion2)/semitotal)*100));
+	distribucionLado.push_back((int)((static_cast<double>(seccion3)/semitotal)*100));
+	cout<<"LADO:" <<endl;
+	for (size_t i = 0; i < distribucionLado.size(); i++) {
+    	cout << distribucionLado[i] <<endl;
+ 	}
+	return distribucionLado;	
+}
+
+int main(){
 	int lineas;
 	cout<<"Ingresar numero de trazos"<<endl;
 	cin>>lineas;
 	cout<<"Llenando la lista con los trazos"<<endl;
 	listaSimple listaLineas;
 	listaLineas = llenadoLista(lineas);// lista de lineas = {(1,2,3,4),(1,2,3,4),(1,2,3,4),(1,2,3,4)}
-	
-	int ancho,alto;
-	cout<<"Cual seria el alto:"<<endl;
-	cin>>alto;
-	cout<<"Cual seria el ancho"<<endl;
-	cin>>ancho;
-	listaSimpleD listaDistribucion;
-	listaDistribucion = llenadoDistribucion(ancho,alto);// lista de distribucion  = {(id,arr[],arr[])};
-	
-	nodo* aux1;
-	aux1 = listaLineas.primero;
-		
-	while(aux1!=NULL){ // recorre la lista de lineas
-		aux1 = aux1->siguiente;	
-	}
+	vector<int> distribucionArriba;
+	vector<int> distribucionLado;
+	distribucionArriba = sacardistribucionArriba(listaLineas);
+	distribucionLado   = sacardistribucionLado(listaLineas);
 	return 0;
 }
