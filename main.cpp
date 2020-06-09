@@ -58,8 +58,8 @@ listaSimple llenadoLista(int lineas){
 	return listalineas;
 }
 
-vector<int> sacardistribucionArriba(listaSimple listaLineas){
-	vector<int>distribucionArriba;
+vector<int> sacardistribucion(listaSimple listaLineas){
+	vector<int>distribucion;
 	nodo* aux;
 	aux = listaLineas.primero;
 	int seccion1=0;
@@ -92,24 +92,18 @@ vector<int> sacardistribucionArriba(listaSimple listaLineas){
 	cout<<"seccion2: "<<seccion2<<endl;
 	cout<<"seccion3: "<<seccion3<<endl;
 	*/
-	distribucionArriba.push_back((int)((static_cast<double>(seccion1)/semitotal)*100));
-	distribucionArriba.push_back((int)((static_cast<double>(seccion2)/semitotal)*100));
-	distribucionArriba.push_back((int)((static_cast<double>(seccion3)/semitotal)*100));
+	distribucion.push_back((int)((static_cast<double>(seccion1)/semitotal)*100));
+	distribucion.push_back((int)((static_cast<double>(seccion2)/semitotal)*100));
+	distribucion.push_back((int)((static_cast<double>(seccion3)/semitotal)*100));
 	
-	for (size_t i = 0; i < distribucionArriba.size(); i++) {
-    	cout << distribucionArriba[i] <<endl;
- 	}
-	return distribucionArriba;
-}
-
-vector<int> sacardistribucionLado(listaSimple listaLineas){
-	vector<int>distribucionLado;
-	nodo* aux;
+	/*for (size_t i = 0; i < distribucionArriba.size(); i++) {
+    	cout << distribucion[i] <<endl;
+ 	}*/
 	aux = listaLineas.primero;
-	int seccion1=0;
-	int seccion2=0;
-	int seccion3=0;
-	int semitotal=0;
+	seccion1=0;
+	seccion2=0;
+	seccion3=0;
+	semitotal=0;
 	while(aux!=NULL){
 		if(aux->x_salida == 0){
 			semitotal++;
@@ -130,21 +124,12 @@ vector<int> sacardistribucionLado(listaSimple listaLineas){
 		}
 		aux=aux->siguiente;	
 	}
-	/*
-	cout<<"semitotal: "<<semitotal<<endl;
-	cout<<"seccion1: "<<seccion1<<endl;
-	cout<<"seccion2: "<<seccion2<<endl;
-	cout<<"seccion3: "<<seccion3<<endl;
-	*/
-	distribucionLado.push_back((int)((static_cast<double>(seccion1)/semitotal)*100));
-	distribucionLado.push_back((int)((static_cast<double>(seccion2)/semitotal)*100));
-	distribucionLado.push_back((int)((static_cast<double>(seccion3)/semitotal)*100));
-	cout<<"LADO:" <<endl;
-	for (size_t i = 0; i < distribucionLado.size(); i++) {
-    	cout << distribucionLado[i] <<endl;
- 	}
-	return distribucionLado;	
+	distribucion.push_back((int)((static_cast<double>(seccion1)/semitotal)*100));
+	distribucion.push_back((int)((static_cast<double>(seccion2)/semitotal)*100));
+	distribucion.push_back((int)((static_cast<double>(seccion3)/semitotal)*100));
+	return distribucion;
 }
+
 
 int main(){
 	int lineas;
@@ -153,9 +138,10 @@ int main(){
 	cout<<"Llenando la lista con los trazos"<<endl;
 	listaSimple listaLineas;
 	listaLineas = llenadoLista(lineas);// lista de lineas = {(1,2,3,4),(1,2,3,4),(1,2,3,4),(1,2,3,4)}
-	vector<int> distribucionArriba;
-	vector<int> distribucionLado;
-	distribucionArriba = sacardistribucionArriba(listaLineas);
-	distribucionLado   = sacardistribucionLado(listaLineas);
+	vector<int> distribucion;
+	distribucion = sacardistribucion(listaLineas);
+	for (size_t i = 0; i < distribucion.size(); i++) {
+    	cout << distribucion[i] <<endl;
+ 	}
 	return 0;
 }
