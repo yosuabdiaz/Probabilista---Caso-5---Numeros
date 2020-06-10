@@ -129,471 +129,657 @@ vector<int> sacardistribucion(listaSimple listaLineas){
 	distribucion.push_back((int)((static_cast<double>(seccion3)/semitotal)*100));
 	return distribucion;
 }
-void validarNumero(int distribucionVert[],int distribucionHor[]){
-	bool forma=true;
-	int num=0;
-	switch(num){
+
+bool probarVert(int pNum, int listaVert[]){
+	bool val=true;
+	switch(pNum){
 		case 0:{
-			forma=probarVert(0,distribucionVert[]);
-			if(forma==true){
-				forma=probarHor(0,distribucionHor[]);
-				if(forma==true){
-					cout<<"Se puede formar el número 0" <<endl;
+			int contador=0;
+			for(int j=0;j<2;j++){
+				int lineaRandomVert= rand()%100+1;
+				if(lineaRandomVert<listaVert[0]&&contador!=1){
+					contador++;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[1])&&lineaRandomVert>(listaVert[0])&&contador!=2){
+					contador= contador+2;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[2])&& contador!=3&& lineaRandomVert>(listaVert[1])){
+					contador= contador+3;
+					val=true;
 				}
 				else{
-					cout<<"No se puede formar el número 0" <<endl;
-				}
-			}
-			else{
-				cout<<"No se puede formar el número 0" <<endl;
+					val=false;
+				}		
 			}
 			break;
 		}
 		case 1:{
+			int lineaRandomVert= rand()%100+1;
+			if(lineaRandomVert<listaVert[0]){
+				val=true;
+			}
+			else if(lineaRandomVert<(listaVert[1])&&lineaRandomVert>(listaVert[0])){
+				val=true;
+			}
+			else if(lineaRandomVert<(listaVert[2])&& lineaRandomVert>(listaVert[1])){
+				val=true;
+			}
+			else{
+				val=false;
+			}		
 			break;
 		}
 		case 2:{
+			int contador=0;
+			for(int j=0;j<2;j++){
+				int lineaRandomVert= rand()%100+1;
+				if(lineaRandomVert<listaVert[0]&&contador!=1){
+					contador++;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[1])&&lineaRandomVert>(listaVert[0])&&contador!=2){
+					contador= contador+2;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[2])&& contador!=3&& lineaRandomVert>(listaVert[1])){
+					contador= contador+3;
+					val=true;
+				}
+				else{
+					val=false;
+				}		
+			}
 			break;
 		}
 		case 3:{
+			int lineaRandomVert= rand()%100+1;
+			if(lineaRandomVert<(listaVert[2])&&lineaRandomVert>(listaVert[1])){
+				val=true;
+			}
+			else{
+				val=false;
+			}		
 			break;
 		}
 		case 4:{
+			int contador=0;
+			for(int j=0;j<2;j++){
+				int lineaRandomVert= rand()%100+1;
+				if(lineaRandomVert<listaVert[0]&&contador!=1){
+					contador++;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[1])&&lineaRandomVert>(listaVert[0])&&contador!=2){
+					contador= contador+2;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[2])&& contador!=3&& lineaRandomVert>(listaVert[1])){
+					contador= contador+3;
+					val=true;
+				}
+				else{
+					val=false;
+				}		
+			}
 			break;
 		}
 		case 5:{
+			int contador=0;
+			for(int j=0;j<2;j++){
+				int lineaRandomVert= rand()%100+1;
+				if(lineaRandomVert<listaVert[0]&&contador!=1){
+					contador++;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[1])&&lineaRandomVert>(listaVert[0])&&contador!=2){
+					contador= contador+2;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[2])&& contador!=3&& lineaRandomVert>(listaVert[1])){
+					contador= contador+3;
+					val=true;
+				}
+				else{
+					val=false;
+					cout<<listaVert[0] <<endl;
+				}		
+			}
 			break;
 		}
 		case 6:{
+			int contador=0;
+			for(int j=0;j<2;j++){
+				int lineaRandomVert= rand()%100+1;
+				if(lineaRandomVert<listaVert[0]&&contador!=1){
+					contador++;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[1])&&lineaRandomVert>(listaVert[0])&&contador!=2){
+					contador= contador+2;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[2])&& contador!=3&& lineaRandomVert>(listaVert[1])){
+					contador= contador+3;
+					val=true;
+				}
+				else{
+					val=false;
+				}		
+			}
 			break;
 		}
 		case 7:{
+			int contador=0;
+			for(int j=0;j<2;j++){
+				int lineaRandomVert= rand()%100+1;
+				if(lineaRandomVert<listaVert[0]&&contador!=1){
+					contador++;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[1])&&lineaRandomVert>(listaVert[0])&&contador!=2){
+					contador= contador+2;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[2])&& contador!=3&& lineaRandomVert>(listaVert[1])){
+					contador= contador+3;
+					val=true;
+				}
+				else{
+					val=false;
+				}		
+			}
 			break;
 		}
 		case 8:{
+			int contador=0;
+			for(int j=0;j<2;j++){
+				int lineaRandomVert= rand()%100+1;
+				if(lineaRandomVert<listaVert[0]&&contador!=1){
+					contador++;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[1])&&lineaRandomVert>(listaVert[0])&&contador!=2){
+					contador= contador+2;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[2])&& contador!=3&& lineaRandomVert>(listaVert[1])){
+					contador= contador+3;
+					val=true;
+				}
+				else{
+					val=false;
+				}		
+			}
 			break;
 		}
 		case 9:{
+			int contador=0;
+			for(int j=0;j<2;j++){
+				int lineaRandomVert= rand()%100+1;
+				if(lineaRandomVert<listaVert[0]&&contador!=1){
+					contador++;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[1])&&lineaRandomVert>(listaVert[0])&&contador!=2){
+					contador= contador+2;
+					val=true;
+				}
+				else if(lineaRandomVert<(listaVert[2])&& contador!=3&& lineaRandomVert>(listaVert[1])){
+					contador= contador+3;
+					val=true;
+				}
+				else{
+					val=false;
+				}		
+			}
 			break;
 		}
 	}
+	return val;
 }
-/*
-void buscarNumero(int distribucion[]){
-	int numero=0;
-	for(numero; numero<10;numero++){
-		switch(numero){
-			case 0:{
-				cout<<"PRUEBA0"<<endl;
-				int contador=0;
-				for(int j=0;j<2;j++){
-					int lineaRandomVert= rand()%100+1;
-					if(lineaRandomVert<distribucion[0]&&contador!=1){
-						contador++;
-					}
-					else if(lineaRandomVert<(distribucion[1]+distribucion[0])&& contador!=2&& lineaRandomVert>(distribucion[0])){
-						contador= contador+2;
-					}
-					else if(lineaRandomVert<(distribucion[2]+distribucion[1]+distribucion[0])&& contador!=3&& lineaRandomVert>(distribucion[1]+distribucion[0])){
-						contador= contador+3;
-					}
-					else{
-					cout<<"No se puede formar el 0"<<endl;
-						contador=-1
-					}
-					
-				}
-				
-				contador=0;
-				for(int j=0;j<2;j++){
-					int lineaRandomHor= rand()%100+1;
-					if((lineaRandomHor<distribucion[3])&&(contador!=1)){
-						contador++;
-						if(j=1){
-							cout<<"Se puede formar el 0"<<endl;
-						}
-					}
-					else if(lineaRandomHor<(distribucion[3]+distribucion[4])&& contador!=2){
-						contador= contador+2;
-						if(j=1){
-							cout<<"Se puede formar el 0"<<endl;
-						}
-					}
-					else if(lineaRandomHor<(distribucion[3]+distribucion[4]+distribucion[5])&& contador!=3){
-						contador= contador+3;
-						if(j=1){
-							cout<<"Se puede formar el 0"<<endl;
-						}
 
-					}
-					else{
-					cout<<"No se puede formar el 0"<<endl;
-						break;
-					}
-					
+bool probarHor(int pNum,int listaHor[]){
+	bool val=true;
+	switch(pNum){
+		case 0:{
+			int contador=0;
+			for(int j=0;j<2;j++){
+				int lineaRandomHor= rand()%100+1;
+				if(lineaRandomHor<listaHor[0]&&contador!=1){
+					contador++;
+					val=true;
 				}
-			}
-			case 1:{
-				cout<<"PRUEBA1"<<endl;
-				if(distribucion[0]+distribucion[1]+distribucion[2]!=0){
-					cout<<"Se puede formar el 1"<<endl;
+				else if(lineaRandomHor<(listaHor[1])&&lineaRandomHor>(listaHor[0])&&contador!=2){
+					contador= contador+2;
+					val=true;
+				}
+				else if(lineaRandomHor<(listaHor[2])&& contador!=3&& lineaRandomHor>(listaHor[1])){
+					contador= contador+3;
+					val=true;
 				}
 				else{
-					cout<<"No se puede formar el 1"<<endl;
-				}
+					val=false;
+				}		
 			}
-			case 2:{
-				cout<<"PRUEBA2"<<endl;
-				int contador=0;
-				for(int j=0;j<2;j++){
-					int lineaRandomVert= rand()%100+1;
-					if(lineaRandomVert<distribucion[0]&&contador!=1){
-						contador++;
-					}
-					else if(lineaRandomVert<(distribucion[0]+distribucion[1])&& contador!=2){
-						contador= contador+2;
-					}
-					else if(lineaRandomVert<(distribucion[2]+distribucion[1]+distribucion[0])&& contador!=3){
-						contador= contador+3;
-					}
-					else{
-					cout<<"No se puede formar el 2"<<endl;
-					}
-					
-				}
-				contador=0;
-				for(int j=0;j<3;j++){
-					int lineaRandomHor= rand()%100+1;
-					if(lineaRandomHor<distribucion[3]&&contador!=1){
-						if(j==2 && contador==9){
-							cout<<"Se puede formar el 2"<<endl;
-							break;
-						}
-						contador++;
-					}
-					else if(lineaRandomHor<(distribucion[3]+distribucion[4])&& contador!=2){
-						if(j==2 && contador==8){
-							cout<<"Se puede formar el 2"<<endl;
-							break;
-						}
-						contador= contador+2;
-					}
-					else if(lineaRandomHor<(distribucion[3]+distribucion[4]+distribucion[5])&& contador!=7){
-						if(j==2 && contador==3){
-							cout<<"Se puede formar el 2"<<endl;
-							break;
-						}
-						contador= contador+7;
-					}
-					else{
-					cout<<"No se puede formar el 2"<<endl;
-						break;
-					}
-					
-				}
-				}
-			case 3:{
-				cout<<"PRUEBA3"<<endl;
-			int lineaRandomHor= rand()%100+1;
-				if(lineaRandomHor<distribucion[3]){
-					cout<<"No se puede formar el 3"<<endl;
-					break;
-				}	
+			break;
+		}
+		case 2:{
 			int contador=0;
 			for(int j=0;j<3;j++){
-				lineaRandomHor= rand()%100+1;
-				if(lineaRandomHor<distribucion[3]&&contador!=1){
-					if(j==2 && contador==9){
-						cout<<"Se puede formar el 3"<<endl;
-						break;
+				if(val==true){
+					int lineaRandomHor= rand()%100+1;
+					if((lineaRandomHor<listaHor[0])&&(contador!=1)){
+						if(j==2&&contador<5){
+							val=false;
+						}
+						else{
+							contador++;
+							val=true;
+						}
 					}
-					contador++;
-				}
-				else if(lineaRandomHor<(distribucion[3]+distribucion[4])&& contador!=2){
-					if(j==2 && contador==8){
-						cout<<"Se puede formar el 3"<<endl;
-						break;
+					else if(lineaRandomHor<(listaHor[1])&& contador!=2&&lineaRandomHor>listaHor[0]){
+						if(j==2&&contador==3&&contador==5){
+							val=false;
+						}
+						else{
+							contador+2;
+							val=true;
+						}
 					}
-					contador= contador+2;
-				}
-				else if(lineaRandomHor<(distribucion[3]+distribucion[4]+distribucion[5])&& contador!=7){
-					if(j==2 && contador==3){
-						cout<<"Se puede formar el 3"<<endl;
-						break;
+					else if(lineaRandomHor<(listaHor[2])&& contador!=3&&lineaRandomHor>(listaHor[1])){
+						if(j==2&&contador==4&&contador==5){
+							val=false;
+						}
+						else{
+							contador+3;
+							val=true;
+						}
 					}
-					contador= contador+7;
+					else{
+						val=false;
+					}
 				}
 				else{
-				cout<<"No se puede formar el 3"<<endl;
+					j=3;
+				}
+			}
+			break;
+		}
+		case 3:{
+			int contador=0;
+			for(int j=0;j<3;j++){
+				if(val==true){
+					int lineaRandomHor= rand()%100+1;
+					if((lineaRandomHor<listaHor[0])&&(contador!=1)){
+						if(j==2&&contador<5){
+							val=false;
+						}
+						else{
+							contador++;
+							val=true;
+						}
+					}
+					else if(lineaRandomHor<(listaHor[1])&& contador!=2&&lineaRandomHor>listaHor[0]){
+						if(j==2&&contador==3&&contador==5){
+							val=false;
+						}
+						else{
+							contador+2;
+							val=true;
+						}
+					}
+					else if(lineaRandomHor<(listaHor[2])&& contador!=3&&lineaRandomHor>(listaHor[1])){
+						if(j==2&&contador==4&&contador==5){
+							val=false;
+						}
+						else{
+							contador+3;
+							val=true;
+						}
+					}
+					else{
+						val=false;
+					}
+				}
+				else{
+					j=3;
+				}
+			}
+			break;
+		}
+		case 4:{
+			int lineaRandomHor= rand()%100+1;
+			if(lineaRandomHor<(listaHor[1])&& lineaRandomHor>listaHor[0]){
+				val=true;
+			}
+			else{
+				val=false;
+			}
+			break;
+		}
+		case 5:{
+			int contador=0;
+			for(int j=0;j<3;j++){
+				if(val==true){
+					int lineaRandomHor= rand()%100+1;
+					if((lineaRandomHor<listaHor[0])&&(contador!=1)){
+						if(j==2&&contador<5){
+							val=false;
+						}
+						else{
+							contador++;
+							val=true;
+						}
+					}
+					else if(lineaRandomHor<(listaHor[1])&& contador!=2&&lineaRandomHor>listaHor[0]){
+						if(j==2&&contador==3&&contador==5){
+							val=false;
+						}
+						else{
+							contador+2;
+							val=true;
+						}
+					}
+					else if(lineaRandomHor<(listaHor[2])&& contador!=3&&lineaRandomHor>(listaHor[1])){
+						if(j==2&&contador==4&&contador==5){
+							val=false;
+						}
+						else{
+							contador+3;
+							val=true;
+						}
+					}
+					else{
+						val=false;
+					}
+				}
+				else{
+					j=3;
+				}
+			}
+			break;
+		}
+		case 6:{
+			int contador=0;
+			for(int j=0;j<2;j++){
+				if(val==true){
+					int lineaRandomHor= rand()%100+1;
+					if(lineaRandomHor<(listaHor[1])&&lineaRandomHor>(listaHor[0])&&contador!=2){
+						contador= contador+2;
+						val=true;
+					}
+					else if(lineaRandomHor<(listaHor[2])&& contador!=3&& lineaRandomHor>(listaHor[1])){
+						contador= contador+3;
+						val=true;
+					}
+					else{
+						val=false;
+					}		
+				}
+			}
+			break;
+		}
+		case 7:{
+			int contador=0;
+			for(int j=0;j<2;j++){
+				if(val==true){
+					int lineaRandomHor= rand()%100+1;
+					if(lineaRandomHor<listaHor[0]&&contador!=1){
+						contador++;
+						val=true;
+					}
+					else if(lineaRandomHor<(listaHor[1])&&lineaRandomHor>(listaHor[0])&&contador!=2){
+						contador= contador+2;
+						val=true;
+					}
+					else{
+						val=false;
+					}		
+				}
+			}
+			break;
+		}
+		case 8:{
+			int contador=0;
+			for(int j=0;j<3;j++){
+				if(val==true){
+					int lineaRandomHor= rand()%100+1;
+					if((lineaRandomHor<listaHor[0])&&(contador!=1)){
+						if(j==2&&contador<5){
+							val=false;
+						}
+						else{
+							contador++;
+							val=true;
+						}
+					}
+					else if(lineaRandomHor<(listaHor[1])&& contador!=2&&lineaRandomHor>listaHor[0]){
+						if(j==2&&contador==3&&contador==5){
+							val=false;
+						}
+						else{
+							contador+2;
+							val=true;
+						}
+					}
+					else if(lineaRandomHor<(listaHor[2])&& contador!=3&&lineaRandomHor>(listaHor[1])){
+						if(j==2&&contador==4&&contador==5){
+							val=false;
+						}
+						else{
+							contador+3;
+							val=true;
+						}
+					}
+					else{
+						val=false;
+					}
+				}
+				else{
+					j=3;
+				}
+			}
+			break;
+		}
+		case 9:{
+			int contador=0;
+			for(int j=0;j<2;j++){
+				if(val==true){
+					int lineaRandomHor= rand()%100+1;
+					if(lineaRandomHor<listaHor[0]&&contador!=1){
+						contador++;
+						val=true;
+					}
+					else if(lineaRandomHor<(listaHor[1])&&lineaRandomHor>(listaHor[0])&&contador!=2){
+						contador= contador+2;
+						val=true;
+					}
+					else{
+						val=false;
+					}		
+				}
+			}
+			break;
+		}
+	}
+	return val;
+}
+
+void validarNumero(int distribucionVert[],int distribucionHor[]){
+	bool forma=true;
+	int num=0;
+	for(num;num<10;num++){
+		switch(num){
+			case 0:{
+				forma=probarVert(0,distribucionVert);
+				if(forma==true){
+					forma=probarHor(0,distribucionHor);
+					if(forma==true){
+						cout<<"Se puede formar el numero 0" <<endl;
+					}
+					else{
+						cout<<"No se puede formar el numero 0" <<endl;
+					}
+				}
+				else{
+					cout<<"No se puede formar el numero 0" <<endl;
+				}
 				break;
+			}
+			case 1:{
+				forma=probarVert(1,distribucionVert);
+				if(forma==true){
+					forma=probarHor(1,distribucionHor);
+					if(forma==true){
+						cout<<"Se puede formar el numero 1" <<endl;
+					}
+					else{
+						cout<<"No se puede formar el numero 1" <<endl;
+					}
 				}
-					
+				else{
+					cout<<"No se puede formar el numero 1" <<endl;
 				}
+				break;
+			}
+			case 2:{
+				forma=probarVert(2,distribucionVert);
+				if(forma==true){
+					forma=probarHor(2,distribucionHor);
+					if(forma==true){
+						cout<<"Se puede formar el numero 2" <<endl;
+					}
+					else{
+						cout<<"No se puede formar el numero 2" <<endl;
+					}
+				}
+				else{
+					cout<<"No se puede formar el numero 2" <<endl;
+				}
+				break;
+			}
+			case 3:{
+				forma=probarVert(3,distribucionVert);
+				if(forma==true){
+					forma=probarHor(3,distribucionHor);
+					if(forma==true){
+						cout<<"Se puede formar el numero 3" <<endl;
+					}
+					else{
+						cout<<"No se puede formar el numero 3" <<endl;
+					}
+				}
+				else{
+					cout<<"No se puede formar el numero 3" <<endl;
+				}
+				break;
 			}
 			case 4:{
-				cout<<"PRUEBA4"<<endl;
-				int contador=0;
-				for(int j=0;j<2;j++){
-					int lineaRandomVert= rand()%100+1;
-					if(lineaRandomVert<distribucion[0]&&contador!=1){
-						contador++;
-					}
-					else if(lineaRandomVert<(distribucion[2]+distribucion[1]+distribucion[0])&& contador!=3){
-						contador= contador+3;
+				forma=probarVert(4,distribucionVert);
+				if(forma==true){
+					forma=probarHor(4,distribucionHor);
+					if(forma==true){
+						cout<<"Se puede formar el numero 4" <<endl;
 					}
 					else{
-					cout<<"No se puede formar el 4"<<endl;
-						break;
+						cout<<"No se puede formar el numero 4" <<endl;
 					}
-					
 				}
-				int lineaRandomHor= rand()%100+1;
-				if(lineaRandomHor<(distribucion[3]+distribucion[4])){
-					cout<<"Se puede formar el 4"<<endl;
-					break;
-					}
 				else{
-				cout<<"No se puede formar el 4"<<endl;
-					break;
-				}	
+					cout<<"No se puede formar el numero 4" <<endl;
 				}
+				break;
+			}
 			case 5:{
-				cout<<"PRUEBA5"<<endl;
-				int contador=0;
-				for(int j=0;j<2;j++){
-					int lineaRandomVert= rand()%100+1;
-					if(lineaRandomVert<distribucion[0]&&contador!=1){
-						contador++;
-					}
-					else if(lineaRandomVert<(distribucion[0]+distribucion[1])&& contador!=2){
-						contador= contador+2;
-					}
-					else if(lineaRandomVert<(distribucion[2]+distribucion[1]+distribucion[0])&& contador!=3){
-						contador= contador+3;
+				forma=probarVert(5,distribucionVert);
+				if(forma==true){
+					forma=probarHor(5,distribucionHor);
+					if(forma==true){
+						cout<<"Se puede formar el numero 5" <<endl;
 					}
 					else{
-					cout<<"No se puede formar el 5"<<endl;
-						break;
+						cout<<"No se puede formar el numero 5" <<endl;
 					}
-					
 				}
-				contador=0;
-				for(int j=0;j<3;j++){
-					int lineaRandomHor= rand()%100+1;
-					if(lineaRandomHor<distribucion[3]&&contador!=1){
-						if(j==2 && contador==9){
-							cout<<"Se puede formar el 5"<<endl;
-							break;
-						}
-						contador++;
-					}
-					else if(lineaRandomHor<(distribucion[3]+distribucion[4])&& contador!=2){
-						if(j==2 && contador==8){
-							cout<<"Se puede formar el 5"<<endl;
-							break;
-						}
-						contador= contador+2;
-					}
-					else if(lineaRandomHor<(distribucion[3]+distribucion[4]+distribucion[5])&& contador!=7){
-						if(j==2 && contador==3){
-							cout<<"Se puede formar el 5"<<endl;
-							break;
-						}
-						contador= contador+7;
-					}
-					else{
-					cout<<"No se puede formar el 5"<<endl;
-						break;
-					}
-					
+				else{
+					cout<<"No se puede formar el numero 5" <<endl;
 				}
+				break;
 			}
 			case 6:{
-				cout<<"PRUEBA6"<<endl;
-				int contador=0;
-				for(int j=0;j<2;j++){
-					int lineaRandomVert= rand()%100+1;
-					if(lineaRandomVert<distribucion[0]&&contador!=1){
-						contador++;
-					}
-					else if(lineaRandomVert<(distribucion[1]+distribucion[0])&& contador!=2){
-						contador= contador+2;
-					}
-					else if(lineaRandomVert<(distribucion[2]+distribucion[1]+distribucion[0])&& contador!=3){
-						contador= contador+3;
+				forma=probarVert(6,distribucionVert);
+				if(forma==true){
+					forma=probarHor(6,distribucionHor);
+					if(forma==true){
+						cout<<"Se puede formar el numero 6" <<endl;
 					}
 					else{
-					cout<<"No se puede formar el 6"<<endl;
-						break;
+						cout<<"No se puede formar el numero 6" <<endl;
 					}
-					
 				}
-
-				contador=0;
-				for(int j=0;j<2;j++){
-					int lineaRandomHor= rand()%100+1;
-					if(lineaRandomHor<(distribucion[3]+distribucion[4])&& contador!=2){
-						cout<<"Se puede formar el 6"<<endl;
-						break;
-						contador= contador+2;
-					}
-					else if(lineaRandomHor<(distribucion[3]+distribucion[4]+distribucion[5])&& contador!=7){
-						cout<<"Se puede formar el 6"<<endl;
-						break;
-						contador= contador+7;
-					}
-					else{
-					cout<<"No se puede formar el 6"<<endl;
-						break;
-					}
-					
+				else{
+					cout<<"No se puede formar el numero 6" <<endl;
 				}
+				break;
 			}
 			case 7:{
-				cout<<"PRUEBA7"<<endl;
-			int contador=0;
-			for(int j=0;j<2;j++){
-					int lineaRandomVert= rand()%100+1;
-					if(lineaRandomVert<distribucion[0]&&contador!=1){
-						contador++;
-					}
-					else if(lineaRandomVert<(distribucion[0]+distribucion[1])&& contador!=2){
-						contador= contador+2;
-					}
-					else if(lineaRandomVert<(distribucion[2]+distribucion[1]+distribucion[0])&& contador!=3){
-						contador= contador+3;
+				forma=probarVert(7,distribucionVert);
+				if(forma==true){
+					forma=probarHor(7,distribucionHor);
+					if(forma==true){
+						cout<<"Se puede formar el numero 7" <<endl;
 					}
 					else{
-					cout<<"No se puede formar el 7"<<endl;
-						break;
+						cout<<"No se puede formar el numero 7" <<endl;
 					}
-					
 				}
-				contador=0;
-				for(int j=0;j<3;j++){
-					int lineaRandomHor= rand()%100+1;
-					if(lineaRandomHor<distribucion[3]&&contador!=1){
-						if(j==2 && contador==9){
-							cout<<"Se puede formar el 7"<<endl;
-							break;
-						}
-						contador++;
-					}
-					else if(lineaRandomHor<(distribucion[3]+distribucion[4])&& contador!=2){
-						if(j==2 && contador==8){
-							cout<<"Se puede formar el 7"<<endl;
-							break;
-						}
-						contador= contador+2;
-					}
-					else{
-					cout<<"No se puede formar el 7"<<endl;
-						break;
-					}
-					
+				else{
+					cout<<"No se puede formar el numero 7" <<endl;
 				}
+				break;
 			}
 			case 8:{
-				cout<<"PRUEBA8"<<endl;
-			int contador=0;
-			for(int j=0;j<2;j++){
-					int lineaRandomVert= rand()%100+1;
-					if(lineaRandomVert<distribucion[0]&&contador!=1){
-						contador++;
-					}
-					else if(lineaRandomVert<(distribucion[0]+distribucion[1])&& contador!=2){
-						contador= contador+2;
-					}
-					else if(lineaRandomVert<(distribucion[2]+distribucion[1]+distribucion[0])&& contador!=3){
-						contador= contador+3;
+				forma=probarVert(8,distribucionVert);
+				if(forma==true){
+					forma=probarHor(8,distribucionHor);
+					if(forma==true){
+						cout<<"Se puede formar el numero 8" <<endl;
 					}
 					else{
-					cout<<"No se puede formar el 8"<<endl;
-						break;
+						cout<<"No se puede formar el numero 8" <<endl;
 					}
-					
 				}
-				contador=0;
-				for(int j=0;j<3;j++){
-					int lineaRandomHor= rand()%100+1;
-					if(lineaRandomHor<distribucion[3]&&contador!=1){
-						if(j==2 && contador==9){
-							cout<<"Se puede formar el 8"<<endl;
-							break;
-						}
-						contador++;
-					}
-					else if(lineaRandomHor<(distribucion[3]+distribucion[4])&& contador!=2){
-						if(j==2 && contador==8){
-							cout<<"Se puede formar el 8"<<endl;
-							break;
-						}
-						contador= contador+2;
-					}
-					else if(lineaRandomHor<(distribucion[3]+distribucion[4]+distribucion[5])&& contador!=7){
-						if(j==2 && contador==3){
-							cout<<"Se puede formar el 8"<<endl;
-							break;
-						}
-						contador= contador+7;
-					}
-					else{
-					cout<<"No se puede formar el 8"<<endl;
-						break;
-					}
-					
+				else{
+					cout<<"No se puede formar el numero 8" <<endl;
 				}
+				break;
 			}
 			case 9:{
-				cout<<"PRUEBA9"<<endl;
-			int contador=0;
-			for(int j=0;j<2;j++){
-					int lineaRandomVert= rand()%100+1;
-					if(lineaRandomVert<distribucion[0]&&contador!=1){
-						contador++;
-					}
-					else if(lineaRandomVert<(distribucion[0]+distribucion[1])&& contador!=2){
-						contador= contador+2;
-					}
-					else if(lineaRandomVert<(distribucion[2]+distribucion[1]+distribucion[0])&& contador!=3){
-						contador= contador+3;
+				forma=probarVert(9,distribucionVert);
+				if(forma==true){
+					forma=probarHor(9,distribucionHor);
+					if(forma==true){
+						cout<<"Se puede formar el numero 9" <<endl;
 					}
 					else{
-					cout<<"No se puede formar el 9"<<endl;
-						break;
+						cout<<"No se puede formar el numero 9" <<endl;
 					}
-					
 				}
-				contador=0;
-				for(int j=0;j<3;j++){
-					int lineaRandomHor= rand()%100+1;
-					if(lineaRandomHor<distribucion[3]&&contador!=1){
-						if(j==2 && contador==9){
-							cout<<"Se puede formar el 9"<<endl;
-							break;
-						}
-						contador++;
-					}
-					else if(lineaRandomHor<(distribucion[3]+distribucion[4])&& contador!=2){
-						if(j==2 && contador==8){
-							cout<<"Se puede formar el 9"<<endl;
-							break;
-						}
-						contador= contador+2;
-					}
-					else{
-					cout<<"No se puede formar el 9"<<endl;
-						break;
-					}
-					
+				else{
+					cout<<"No se puede formar el numero 9" <<endl;
 				}
+				break;
 			}
-	}
+		}	
 	}
 }
-*/
 
 int main(){
+	int distrV[]={32,64,100};
+	int distrH[]={32,64,100};
+	validarNumero(distrV,distrH);
 	int lineas;
 	cout<<"Ingresar numero de trazos"<<endl;
 	cin>>lineas;
