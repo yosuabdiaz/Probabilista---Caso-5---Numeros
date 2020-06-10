@@ -58,7 +58,7 @@ listaSimple llenadoLista(int lineas){
 	return listalineas;
 }
 
-vector<int> sacardistribucion(listaSimple listaLineas){
+vector<int> sacardistribucionV(listaSimple listaLineas){
 	vector<int>distribucion;
 	nodo* aux;
 	aux = listaLineas.primero;
@@ -92,18 +92,28 @@ vector<int> sacardistribucion(listaSimple listaLineas){
 	cout<<"seccion2: "<<seccion2<<endl;
 	cout<<"seccion3: "<<seccion3<<endl;
 	*/
-	distribucion.push_back((int)((static_cast<double>(seccion1)/semitotal)*100));
-	distribucion.push_back((int)((static_cast<double>(seccion2)/semitotal)*100));
-	distribucion.push_back((int)((static_cast<double>(seccion3)/semitotal)*100));
+	int primero = (int)((static_cast<double>(seccion1)/semitotal)*100);
+	int segundo = (int)((static_cast<double>(seccion2)/semitotal)*100);
+	int tercero = (int)((static_cast<double>(seccion3)/semitotal)*100);
+
+	distribucion.push_back(primero);
+	distribucion.push_back(primero+segundo);
+	distribucion.push_back(100);
 	
 	/*for (size_t i = 0; i < distribucionArriba.size(); i++) {
     	cout << distribucion[i] <<endl;
  	}*/
+		return distribucion;
+}
+
+vector<int> sacardistribucionH(listaSimple listaLineas){
+	vector<int>distribucion;
+	nodo* aux;
 	aux = listaLineas.primero;
-	seccion1=0;
-	seccion2=0;
-	seccion3=0;
-	semitotal=0;
+	int seccion1=0;
+	int seccion2=0;
+	int seccion3=0;
+	int semitotal=0;
 	while(aux!=NULL){
 		if(aux->x_salida == 0){
 			semitotal++;
@@ -124,9 +134,13 @@ vector<int> sacardistribucion(listaSimple listaLineas){
 		}
 		aux=aux->siguiente;	
 	}
-	distribucion.push_back((int)((static_cast<double>(seccion1)/semitotal)*100));
-	distribucion.push_back((int)((static_cast<double>(seccion2)/semitotal)*100));
-	distribucion.push_back((int)((static_cast<double>(seccion3)/semitotal)*100));
+	int primero = (int)((static_cast<double>(seccion1)/semitotal)*100);
+	int segundo = (int)((static_cast<double>(seccion2)/semitotal)*100);
+	int tercero = (int)((static_cast<double>(seccion3)/semitotal)*100);
+
+	distribucion.push_back(primero);
+	distribucion.push_back(primero+segundo);
+	distribucion.push_back(100);
 	return distribucion;
 }
 
@@ -777,19 +791,23 @@ void validarNumero(int distribucionVert[],int distribucionHor[]){
 }
 
 int main(){
-	int distrV[]={32,64,100};
-	int distrH[]={32,64,100};
-	validarNumero(distrV,distrH);
+
 	int lineas;
 	cout<<"Ingresar numero de trazos"<<endl;
 	cin>>lineas;
 	cout<<"Llenando la lista con los trazos"<<endl;
 	listaSimple listaLineas;
 	listaLineas = llenadoLista(lineas);// lista de lineas = {(1,2,3,4),(1,2,3,4),(1,2,3,4),(1,2,3,4)}
-	vector<int> distribucion;
-	distribucion = sacardistribucion(listaLineas);
-	for (size_t i = 0; i < distribucion.size(); i++) {
-    	cout << distribucion[i] <<endl;
- 	}
+
+
+
+	vector<int> VectorVertical = sacardistribucionV(listaLineas);
+	vector<int> VectorHorizontal = sacardistribucionH(listaLineas);
+	int distrV[]={VectorVertical[0],VectorVertical[1],VectorVertical[2]};
+	int distrH[]={VectorHorizontal[0],VectorHorizontal[1],VectorHorizontal[2]};
+	validarNumero(distrV,distrH);
+	
+
+	
 	return 0;
 }
