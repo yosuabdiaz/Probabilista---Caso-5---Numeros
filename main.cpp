@@ -257,7 +257,6 @@ bool probarVert(int pNum, int listaVert[]){
 				}
 				else{
 					val=false;
-					cout<<listaVert[0] <<endl;
 				}		
 			}
 			break;
@@ -623,8 +622,7 @@ bool probarHor(int pNum,int listaHor[]){
 
 void validarNumero(int distribucionVert[],int distribucionHor[]){
 	bool forma=true;
-	int num=0;
-	for(num;num<10;num++){
+	for(int num=0;num<10;num++){
 		switch(num){
 			case 0:{
 				forma=probarVert(0,distribucionVert);
