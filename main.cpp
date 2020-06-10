@@ -398,7 +398,7 @@ bool probarHor(int pNum,int listaHor[]){
 							val=false;
 						}
 						else{
-							contador+2;
+							contador=contador+2;
 							val=true;
 						}
 					}
@@ -407,7 +407,7 @@ bool probarHor(int pNum,int listaHor[]){
 							val=false;
 						}
 						else{
-							contador+3;
+							contador=contador+3;
 							val=true;
 						}
 					}
@@ -440,7 +440,7 @@ bool probarHor(int pNum,int listaHor[]){
 							val=false;
 						}
 						else{
-							contador+2;
+							contador= contador+2;
 							val=true;
 						}
 					}
@@ -449,7 +449,7 @@ bool probarHor(int pNum,int listaHor[]){
 							val=false;
 						}
 						else{
-							contador+3;
+							contador+=3;
 							val=true;
 						}
 					}
@@ -492,7 +492,7 @@ bool probarHor(int pNum,int listaHor[]){
 							val=false;
 						}
 						else{
-							contador+2;
+							contador+=2;
 							val=true;
 						}
 					}
@@ -501,7 +501,7 @@ bool probarHor(int pNum,int listaHor[]){
 							val=false;
 						}
 						else{
-							contador+3;
+							contador+=3;
 							val=true;
 						}
 					}
@@ -574,7 +574,7 @@ bool probarHor(int pNum,int listaHor[]){
 							val=false;
 						}
 						else{
-							contador+2;
+							contador+=2;
 							val=true;
 						}
 					}
@@ -583,7 +583,7 @@ bool probarHor(int pNum,int listaHor[]){
 							val=false;
 						}
 						else{
-							contador+3;
+							contador+=3;
 							val=true;
 						}
 					}
