@@ -58,8 +58,9 @@ listaSimple llenadoLista(int lineas){
 	return listalineas;
 }
 
-vector<int> sacardistribucionV(listaSimple listaLineas){
-	vector<int>distribucion;
+vector<int> sacardistribucionV(listaSimple listaLineas){  
+
+	vector<int> distribucion;
 	nodo* aux;
 	aux = listaLineas.primero;
 	int seccion1=0;
@@ -70,44 +71,45 @@ vector<int> sacardistribucionV(listaSimple listaLineas){
 		if(aux->y_salida==0 and aux->x_salida <= 359){
 			semitotal++;
 			int x = aux->x_salida;
-			//cout<<x<<endl;
+			cout<<x<<endl;
 			if(x <= 119){
-				//cout<<x<<endl;
+				cout<<x<<endl;
 				seccion1++;
 			}
 			if(x >= 120 and x <= 240){
-				//cout<<x<<endl;
+				cout<<x<<endl;
 				seccion2++;
 			}
 			if(x >= 241 and x <= 359){
-				//cout<<x<<endl;
+				cout<<x<<endl;
 				seccion3++;
 			}
 		}
 		aux=aux->siguiente;	
 	}
-	/*
+	
 	cout<<"semitotal: "<<semitotal<<endl;
 	cout<<"seccion1: "<<seccion1<<endl;
 	cout<<"seccion2: "<<seccion2<<endl;
 	cout<<"seccion3: "<<seccion3<<endl;
-	*/
-	int primero = (int)((static_cast<double>(seccion1)/semitotal)*100);
-	int segundo = (int)((static_cast<double>(seccion2)/semitotal)*100);
-	int tercero = (int)((static_cast<double>(seccion3)/semitotal)*100);
+	
+	int uno = ((int)((static_cast<double>(seccion1)/semitotal)*100));
+	int dos = ((int)((static_cast<double>(seccion2)/semitotal)*100));
+	int suma = uno+dos;
 
-	distribucion.push_back(primero);
-	distribucion.push_back(primero+segundo);
+	distribucion.push_back(uno);
+	distribucion.push_back(suma);
 	distribucion.push_back(100);
 	
-	/*for (size_t i = 0; i < distribucionArriba.size(); i++) {
+	for (size_t i = 0; i < distribucion.size(); i++) {
     	cout << distribucion[i] <<endl;
- 	}*/
+ 	}
+ 	
 		return distribucion;
 }
 
 vector<int> sacardistribucionH(listaSimple listaLineas){
-	vector<int>distribucion;
+	vector<int> distribucion;
 	nodo* aux;
 	aux = listaLineas.primero;
 	int seccion1=0;
@@ -118,28 +120,28 @@ vector<int> sacardistribucionH(listaSimple listaLineas){
 		if(aux->x_salida == 0){
 			semitotal++;
 			int y = aux->y_salida;
-			//cout<<x<<endl;
+			cout<<y<<endl;
 			if(y <= 306){
-				//cout<<x<<endl;
+				cout<<y<<endl;
 				seccion1++;
 			}
 			if(y >= 307 and y <= 613){
-				//cout<<x<<endl;
+				cout<<y<<endl;
 				seccion2++;
 			}
 			if(y >= 614){
-				//cout<<x<<endl;
+				cout<<y<<endl;
 				seccion3++;
 			}
 		}
 		aux=aux->siguiente;	
 	}
-	int primero = (int)((static_cast<double>(seccion1)/semitotal)*100);
-	int segundo = (int)((static_cast<double>(seccion2)/semitotal)*100);
-	int tercero = (int)((static_cast<double>(seccion3)/semitotal)*100);
-
-	distribucion.push_back(primero);
-	distribucion.push_back(primero+segundo);
+	int uno = ((int)((static_cast<double>(seccion1)/semitotal)*100));
+	int dos = ((int)((static_cast<double>(seccion2)/semitotal)*100));
+	//int tercero = (int)((static_cast<double>(seccion3)/semitotal)*100);
+	int suma = uno+dos;
+	distribucion.push_back(uno);
+	distribucion.push_back(suma);
 	distribucion.push_back(100);
 	return distribucion;
 }
@@ -798,9 +800,14 @@ int main(){
 	listaLineas = llenadoLista(lineas);// lista de lineas = {(1,2,3,4),(1,2,3,4),(1,2,3,4),(1,2,3,4)}
 
 
+	cout<<".";
+	vector<int> VectorVertical;
+	VectorVertical = sacardistribucionV(listaLineas);
+	cout<<".";
+	vector<int> VectorHorizontal;
 
-	vector<int> VectorVertical = sacardistribucionV(listaLineas);
-	vector<int> VectorHorizontal = sacardistribucionH(listaLineas);
+	VectorHorizontal = sacardistribucionH(listaLineas);
+	
 	int distrV[]={VectorVertical[0],VectorVertical[1],VectorVertical[2]};
 	int distrH[]={VectorHorizontal[0],VectorHorizontal[1],VectorHorizontal[2]};
 	validarNumero(distrV,distrH);
