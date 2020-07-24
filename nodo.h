@@ -1,5 +1,5 @@
-#ifndef NODE_H
-#define NODE_H
+#ifndef NODO_H
+#define NODO_H
 #include <iostream>
 
 class listaSimple;
@@ -19,4 +19,5 @@ class nodo
         nodo *siguiente;
 };
 
-#endif // NODE_H
+#endif // NODO_H
+

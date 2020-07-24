@@ -1,6 +1,6 @@
-#ifndef LIST_H
-#define LIST_H
-#include "node.cpp"
+#ifndef LISTA_H
+#define LISTA_H
+#include "nodo.h"
 #include <iostream>
 #include <string>
 
@@ -19,6 +19,7 @@ class listaSimple
         int largoLista();
         nodo* primero;
         nodo* actual;
+        listaSimple llenadoLista(int lineas);
 };
 
-#endif // LIST_H
+#endif // LISTA_H

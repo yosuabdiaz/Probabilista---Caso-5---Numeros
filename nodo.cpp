@@ -1,4 +1,6 @@
-#include "node.h"
+#ifndef NODO_CPP
+#define NODO_CPP
+#include "nodo.h"
 
 
 nodo::nodo(int xsalida,int ysalida ,int xllegada,int yllegada)
@@ -18,3 +20,4 @@ nodo::nodo(int xsalida,int ysalida ,int xllegada,int yllegada, nodo * signodo){
     y_llegada = yllegada;
     siguiente = signodo; 
 }
+#endif

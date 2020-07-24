@@ -1,7 +1,11 @@
-#include "list.h"
-#include "node.h"
+#ifndef LISTA_CPP
+#define LISTA_CPP
+#include "lista.h"
+#include "nodo.h"
 #include <iostream>
 #include <string.h>
+#include <cstdlib>
+
 using namespace std;
 
 
@@ -76,4 +80,45 @@ void listaSimple::Siguiente()
 {
    if(actual) actual = actual->siguiente;
 }
-
+//funcion: llenar el espacio de 920,1080 de lienas a base de valores random
+listaSimple listaSimple::llenadoLista(int lineas){
+	listaSimple listalineas;
+	for (int i=0;i<lineas;i++){
+		int random= rand()%6+1; 
+		int y = rand()%919+0;
+		int x = rand()%1079+0;
+		int y_llegada = rand()%919+0;
+		int x_llegada = rand()%1079+0;
+		switch(random)
+		{
+			case 1:{
+				listalineas.InsertarFinal(x,0,x_llegada,919);
+				break;
+				}
+			case 2:{
+				listalineas.InsertarFinal(x,0,0,y_llegada);
+				break;
+				}
+			case 3:{
+				listalineas.InsertarFinal(x,0,1079,y_llegada);
+				break;
+				}
+			case 4:{
+				listalineas.InsertarFinal(0,y,1079,y_llegada);
+				break;
+			}
+			case 5:{
+				listalineas.InsertarFinal(0,y,x_llegada,919);
+				break;
+			}
+			case 6:{
+				listalineas.InsertarFinal(1079,y,x_llegada,919);
+			}
+			
+		}
+	}
+	cout<<"lista de lineas llenada"<<endl;
+	//listalineas.Mostrar();
+	return listalineas;
+}
+#endif
