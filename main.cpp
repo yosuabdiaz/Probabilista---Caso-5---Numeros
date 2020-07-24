@@ -7,7 +7,7 @@
 int main(int argc, char** argv) {
 	
 	listaSimple listaLineas; // estructura especial con nodo con el punto de salida y llegada de la linea
-	listaLineas = listaLineas.llenadoLista(200); //se puede cambiar el numero de lineas a insertar 
+	listaLineas = listaLineas.llenadoLista(1000); //se puede cambiar el numero de lineas a insertar 
 	//listaLineas.Mostrar(); //permite ver las lineas creadas
 	
 	vector<int> tablaProbabilidadLineaVertical;
